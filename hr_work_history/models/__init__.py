@@ -1,2 +1,2 @@
-import hr_work_history
-import sale_order
+from . import hr_work_history
+from . import sale_order

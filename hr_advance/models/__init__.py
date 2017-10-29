@@ -1,2 +1,2 @@
-import hr_advance
-import hr_payroll
+from . import hr_advance
+from . import hr_payroll
