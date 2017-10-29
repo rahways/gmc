@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="hr_advance_form">
+            <field name="name">hr.advance.form</field>
+            <field name="model">hr.advance</field>
+            <field name="arch" type="xml">
+                <form string="Employee Advance Management">
+                    <sheet>
+                        <group string="Employee Details">
+                            <field name="name"/>
+                            <group>
+                                <field name="employee_civil_no"/>
+                                <field name="employee_id"/>
+                            </group>
+                            <group>
+                                <field name="contract_id"/>
+                            </group>
+                        </group>
+                        <group string="Advance Details">
+                            <group>
+                                <field name="advance_amount"/>
+                                <field name="advance_date"/>
+                                <field name="advance_type_id"/>
+                                <field name="advance_description"/>
+                            </group>
+                            <group>
+                                <field name="deduction_method"/>
+                                <field name="recur_deduction_method" attrs="{'invisible': [('deduction_method', '!=', 'recur')]}"/>
+                                <field name="recur_deduction_amount" attrs="{'invisible': ['|', ('deduction_method', '!=', 'recur'), ('recur_deduction_method', '!=', 'amount')]}"/>
+                                <field name="recur_deduction_percent" attrs="{'invisible': ['|', ('deduction_method', '!=', 'recur'), ('recur_deduction_method', '!=', 'percent')]}"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Deduction Details">
+                                <field name="deduction_line_ids">
+                                    <tree string="Deductions" version="7.0" delete="false" create="false" edit="false">
+                                        <field name="payslip_id"/>
+                                        <field name="contract_id"/>
+                                        <field name="deducted_amount"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="hr_contract_view_form_advances" model="ir.ui.view">
+            <field name="name">hr.contract.view.form.advances</field>
+            <field name="model">hr.contract</field>
+            <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//notebook/page[last()]" position="after">
+                        <page string="Advances">
+                            <field name="advance_ids"/>
+                        </page>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+        <record id="hr_payslip_form_advances" model="ir.ui.view">
+            <field name="name">hr.payslip.form.advances</field>
+            <field name="model">hr.payslip</field>
+            <field name="inherit_id" ref="hr_payroll.view_hr_payslip_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//notebook/page[last()]" position="after">
+                        <page string="Advance Details">
+                            <field name="deduct_line_ids">
+                                <tree string="Deductions">
+                                    <field name="name"/>
+                                    <field name="advance_id"/>
+                                    <field name="deducted_amount"/>
+                                    <field name="contract_id"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+        <record id="action_hr_advance" model="ir.actions.act_window">
+            <field name="name">Employee Advance Management</field>
+            <field name="res_model">hr.advance</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{'search_default_current':1}</field>
+            <!--field name="search_view_id" ref="hr_contract_view_search"/-->
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click here to record advance from an employee.
+              </p>
+            </field>
+        </record>
+        <menuitem
+            id="hr_advance"
+            name="Advances"
+            action="action_hr_advance"
+            parent="hr.menu_hr_root"
+            sequence="5"
+            groups="hr.group_hr_manager"/>
+    </data>
+</odoo>

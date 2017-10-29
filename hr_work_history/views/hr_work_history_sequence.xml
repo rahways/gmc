@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.sequence" id="hr_work_hist_seq">
+            <field name="name">work_hist_seq</field>
+            <field name="code">hr.work.hist.seq</field>
+            <field name="prefix">EMP-WORK-</field>
+            <field name="padding">5</field>
+        </record>
+    </data>
+</odoo>

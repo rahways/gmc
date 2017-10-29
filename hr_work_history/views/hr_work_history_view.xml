@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="hr_work_history_form">
+            <field name="name">hr.work.history.form</field>
+            <field name="model">hr.work.history</field>
+            <field name="arch" type="xml">
+                <form string="Employment Details">
+                    <sheet>
+                        <group>
+                            <h1><field name="name" readonly="1" nolabel="1"/></h1>
+                        </group>
+                        <group>
+                            <group string="Employee Details">
+                                <field name="civil_number"/>
+                                <field name="employee_id" invisible="1"/>
+                                <field name="employee_name" readonly="1"/>
+                                <field name="contract_id" attrs="{'invisible': [('employee_id','=',False)]}"/>
+                            </group>
+                            <group string="Contract Details">
+                                <field name="sale_order_id"/>
+                                <field name="company_name"/>
+                                <field name="location_id"/>
+                                <field name="onsite_designation_id"/>
+                                <field name="hire_date"/>
+                                <field name="dehire_date"/>
+                                <field name="status"/>
+                                <field name="total_hours"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Activity Details">
+                                <field name="work_lines_ids">
+                                    <tree string="Work Lines" editable="bottom">
+                                        <field name="from_date"/>
+                                        <field name="to_date"/>
+                                        <field name="hours"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="hr_contract_view_form_worktypes" model="ir.ui.view">
+            <field name="name">hr.contract.view.form.worktypes</field>
+            <field name="model">hr.contract</field>
+            <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//notebook/page[last()]" position="after">
+                        <page string="Work Types">
+                            <field name="work_type_ids">
+                                <tree string="Work Types" editable="bottom">
+                                    <field name="name"/>
+                                    <field name="product_id"/>
+                                    <field name="rate"/>
+                                </tree>
+                            </field>
+
+                        </page>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+        <record id="action_hr_work_history" model="ir.actions.act_window">
+            <field name="name">Employement History</field>
+            <field name="res_model">hr.work.history</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{'search_default_current':1}</field>
+            <!--field name="search_view_id" ref="hr_contract_view_search"/-->
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click here to create employment details of an employee.
+              </p>
+            </field>
+        </record>
+        <menuitem
+            id="hr_work_history"
+            name="Work History"
+            action="action_hr_work_history"
+            parent="hr.menu_hr_root"
+            sequence="6"
+            groups="hr.group_hr_manager"/>
+    </data>
+</odoo>
