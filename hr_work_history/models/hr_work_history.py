@@ -37,7 +37,7 @@ class HrWorkHist(models.Model):
     @api.onchange('civil_number')
     def onchange_employeeid(self):
         res = {}
-        print 'current civil number->', self.civil_number
+        print ('current civil number->', self.civil_number)
         if not self.civil_number:
             res['domain'] = {
                 'contract_id': ['employee_id', '=', False],

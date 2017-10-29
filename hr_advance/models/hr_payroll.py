@@ -11,7 +11,7 @@ class HrPayslip(models.Model):
     def get_inputs(self, contract_ids, date_from, date_to):
         records = super(HrPayslip, self).get_inputs(contract_ids, date_from, date_to)
         deductions = []
-        print records
+        print (records)
         contracts = self.env['hr.contract'].browse(contract_ids)
         total_advance = 0.0
         for contract in contracts:
@@ -23,7 +23,7 @@ class HrPayslip(models.Model):
                     # If deduction method is 'total', deduct whole amount
                     if advance.deduction_method == 'total':
                         deduction_amount = remaining_amount
-                        print 'deduction amount calculation method goes here...'
+                        print ('deduction amount calculation method goes here...')
                     # If deduction method is based on formula, then calculate the deduction amount
                     else:
                         # If the deduction is based on fixed value or percentage
@@ -55,12 +55,12 @@ class HrPayslip(models.Model):
         for record in records:
             if record['code'] == 'ADV':
                 record['amount'] = total_advance
-        print total_advance
+        print (total_advance)
         return records
 
     @api.model
     def create(self, values):
-        print values
+        print (values)
         result = super(HrPayslip, self).create(values)
         """
         deduction_line = {

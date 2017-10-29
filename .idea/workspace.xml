@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e480faef-4832-495c-8a72-6950c25cd50f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hr_advance/__init__.py" afterPath="$PROJECT_DIR$/hr_advance/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hr_advance/models/__init__.py" afterPath="$PROJECT_DIR$/hr_advance/models/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hr_work_history/models/__init__.py" afterPath="$PROJECT_DIR$/hr_work_history/models/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hr_advance/models/hr_payroll.py" afterPath="$PROJECT_DIR$/hr_advance/models/hr_payroll.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hr_work_history/models/hr_work_history.py" afterPath="$PROJECT_DIR$/hr_work_history/models/hr_work_history.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,11 +15,51 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="hr_work_history.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hr_work_history/models/hr_work_history.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="184">
+              <caret line="39" column="13" lean-forward="false" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hr_advance/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="11" lean-forward="true" selection-start-line="0" selection-start-column="11" selection-end-line="0" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="hr_payroll.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hr_advance/models/hr_payroll.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="197">
+              <caret line="62" column="13" lean-forward="false" selection-start-line="62" selection-start-column="8" selection-end-line="62" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sale_order.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/hr_work_history/models/sale_order.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="61" lean-forward="false" selection-start-line="7" selection-start-column="59" selection-end-line="7" selection-end-column="61" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="hr_advance.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hr_advance/models/hr_advance.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="282">
+              <caret line="85" column="11" lean-forward="false" selection-start-line="85" selection-start-column="6" selection-end-line="85" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -74,6 +112,7 @@
       <find>sale_order_view_search_inherit_quotation</find>
       <find>onsite_designation_id</find>
       <find>models</find>
+      <find>print</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -95,7 +134,6 @@
         <option value="$PROJECT_DIR$/hr_employee_advance_management/__manifest__.py" />
         <option value="$PROJECT_DIR$/hr_employee_advance_management/models/__init__.py" />
         <option value="$PROJECT_DIR$/hr_advance/__manifest__.py" />
-        <option value="$PROJECT_DIR$/hr_advance/models/hr_payroll.py" />
         <option value="$PROJECT_DIR$/hr_advance/views/hr_advance_view.xml" />
         <option value="$PROJECT_DIR$/hr_work_history/models/employment_work_history.py" />
         <option value="$PROJECT_DIR$/hr_work_history/models/sale.py" />
@@ -105,10 +143,11 @@
         <option value="$PROJECT_DIR$/hr_work_history/__manifest__.py" />
         <option value="$PROJECT_DIR$/hr_work_history/views/sale_order_view.xml" />
         <option value="$PROJECT_DIR$/hr_work_history/views/hr_work_history_view.xml" />
-        <option value="$PROJECT_DIR$/hr_work_history/models/hr_work_history.py" />
         <option value="$PROJECT_DIR$/hr_advance/__init__.py" />
         <option value="$PROJECT_DIR$/hr_advance/models/__init__.py" />
         <option value="$PROJECT_DIR$/hr_work_history/models/__init__.py" />
+        <option value="$PROJECT_DIR$/hr_advance/models/hr_payroll.py" />
+        <option value="$PROJECT_DIR$/hr_work_history/models/hr_work_history.py" />
       </list>
     </option>
   </component>
@@ -225,12 +264,20 @@
       <option name="presentableId" value="Default" />
       <updated>1506166068187</updated>
     </task>
+    <task id="LOCAL-00001" summary="Added 'from .' in the imports. The error seems to be related with Python3">
+      <created>1509278682857</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1509278682857</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24304539" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24304539" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -252,6 +299,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added 'from .' in the imports. The error seems to be related with Python3" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added 'from .' in the imports. The error seems to be related with Python3" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -312,6 +363,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="612">
           <caret line="36" column="63" lean-forward="false" selection-start-line="36" selection-start-column="63" selection-end-line="36" selection-end-column="63" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -342,13 +394,6 @@
     <entry file="file://$PROJECT_DIR$/hr_employee_advance_management/models/__init__.py" />
     <entry file="file://$PROJECT_DIR$/hr_employee_advance_management/models/hr_advance.py" />
     <entry file="file://$PROJECT_DIR$/hr_employee_advance_management/__manifest__.py" />
-    <entry file="file://$PROJECT_DIR$/hr_advance/models/hr_payroll.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="549">
-          <caret line="34" column="19" lean-forward="false" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hr_advance/__manifest__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -358,13 +403,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hr_work_history/models/employment_work_history.py" />
     <entry file="file://$PROJECT_DIR$/hr_work_history/models/sale.py" />
-    <entry file="file://$PROJECT_DIR$/hr_advance/models/hr_advance.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="87" column="0" lean-forward="true" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hr_advance/views/hr_advance_view.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
@@ -389,14 +427,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hr_work_history/models/sale_order.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hr_work_history/views/hr_work_history_sequence.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -409,14 +439,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="17" column="76" lean-forward="false" selection-start-line="17" selection-start-column="76" selection-end-line="17" selection-end-column="76" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hr_work_history/models/hr_work_history.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1207">
-          <caret line="89" column="38" lean-forward="false" selection-start-line="89" selection-start-column="38" selection-end-line="89" selection-end-column="38" />
           <folding />
         </state>
       </provider>
@@ -449,6 +471,38 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="11" lean-forward="true" selection-start-line="0" selection-start-column="11" selection-end-line="0" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hr_advance/models/hr_payroll.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="62" column="13" lean-forward="false" selection-start-line="62" selection-start-column="8" selection-end-line="62" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hr_advance/models/hr_advance.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="85" column="11" lean-forward="false" selection-start-line="85" selection-start-column="6" selection-end-line="85" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hr_work_history/models/hr_work_history.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="39" column="13" lean-forward="false" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hr_work_history/models/sale_order.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="61" lean-forward="false" selection-start-line="7" selection-start-column="59" selection-end-line="7" selection-end-column="61" />
           <folding />
         </state>
       </provider>
