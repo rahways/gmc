@@ -93,7 +93,7 @@
         </record>
 
         <menuitem id="menu_project_quotations"
-                action="action_project_sales" parent="sales_team.menu_sales"
+                action="action_project_sales" parent="sale.sale_order_menu"
                 sequence="12"/>
     </data>
 </odoo>
