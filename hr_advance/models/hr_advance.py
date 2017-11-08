@@ -1,5 +1,5 @@
 # -*- coding:utf-8 -*-
-from odoo import models, fields, api, _
+from odoo import models, fields, api, _, tools
 import odoo.addons.decimal_precision as dp
 
 
@@ -69,6 +69,45 @@ class HrEmployeeAdvanceManagement(models.Model):
             total_deduc += deduction.deducted_amount
         return total_deduc
 
+    @api.model
+    def create(self, vals):
+        if vals:
+            vals.update({
+                'name': self.env['ir.sequence'].get('hr.advance.seq')
+            })
+        return super(HrEmployeeAdvanceManagement, self).create(vals)
+
+    @api.model
+    def create_salary_rule(self):
+        print('function triggered')
+
+        rule_id = self.env['hr.salary.rule'].search([('code', '=', 'ADVANCE')])
+        if rule_id:
+            print('but returned')
+            return
+        rule_id = self.env['hr.salary.rule'].create(
+            {
+                'name': 'Employee Advance',
+                'code': 'ADVANCE',
+                'sequence': 190,
+                'category_id': self.env['hr.salary.rule.category'].search([('code', '=', 'DED')]).id,
+                'active': True,
+                'appears_on_payslip': True,
+                'condition_select': 'none',
+                'amount_select': 'code',
+                'amount_python_compute': 'result = inputs.ADV.amount',
+                'quantity': '1.0',
+                'amount_fix': 100,
+            }
+        )
+        input_id = self.env['hr.rule.input'].create(
+            {
+                'name': 'Advance Input',
+                'code': 'ADV',
+                'input_id': rule_id.id
+            }
+        )
+
 
 class HrAdvanceDeductionLine(models.Model):
     _name = 'hr.advance.deduction.line'
@@ -93,3 +132,41 @@ class HrEmployeeAdvanceType(models.Model):
     name = fields.Char(string='Advance Type', required=True)
     code = fields.Char(string='Code', help='This code will be used to create Salary Rule based on inputs '
                                            'and the same will be used in Other Inputs in Payslips', required=True)
+
+
+class HrAdvanceReport(models.Model):
+    _name = 'hr.advance.report'
+    _auto = False
+    _order = 'deduction_date desc'
+
+    employee_id = fields.Many2one('hr.employee', string='Employee')
+    deduction_id = fields.Many2one('hr.advance.deduction.line', string='Deduction')
+    induction_amount = fields.Float('Ind Amount')
+    deduction_amount = fields.Float('Ded Amount')
+    induction_date = fields.Date('Advance Date')
+    deduction_date = fields.Date('Deduction Date')
+
+    @api.model_cr
+    def init(self):
+        """ Report on Employee Advance and the deductions """
+        tools.drop_view_if_exists(self._cr, 'hr_advance_report')
+        self._cr.execute(
+            """ CREATE OR REPLACE VIEW hr_advance_report AS (
+            SELECT
+                advance.id AS id,
+                advance.employee_id AS employee_id,
+                deduction.id AS deduction_id,
+                advance.advance_amount AS induction_amount,
+                advance.advance_date AS induction_date,
+                deduction.deducted_amount AS deduction_amount
+            FROM hr_advance AS advance
+            LEFT JOIN hr_advance_deduction_line AS deduction ON deduction.advance_id = advance.id
+            GROUP BY 
+                advance.id,
+                advance.employee_id,
+                deduction.id,
+                advance.advance_amount,
+                advance.advance_date,
+                deduction.deducted_amount
+            )"""
+        )
