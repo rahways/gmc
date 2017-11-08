@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="hr_advance_report_pivot" model="ir.ui.view">
+            <field name="name">hr.advance.report.pivot</field>
+            <field name="model">hr.advance.report</field>
+            <field name="arch" type="xml">
+                <pivot string="Advances">
+                    <field name="employee_id" type="row"/>
+                    <field name="induction_date" type="column"/>
+                </pivot>
+            </field>
+        </record>
+        <record id="action_hr_advance_report" model="ir.actions.act_window">
+            <field name="name">Employee Advance Report</field>
+            <field name="res_model">hr.advance.report</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">graph,pivot</field>
+            <field name="domain">[]</field>
+            <field name="context">{'search_default_current':1, 'group_by_no_leaf':1, 'group_by':[], 'default_order': 'employee_id'}</field>
+            <!--field name="search_view_id" ref="hr_contract_view_search"/-->
+        </record>
+        <menuitem
+                id="hr_advance_report"
+                name="Report"
+                parent="hr_advance"
+                action="action_hr_advance_report"
+                sequence="2"
+                groups="hr.group_hr_manager"
+        />
+    </data>
+</odoo>
