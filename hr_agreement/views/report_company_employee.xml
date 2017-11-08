@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_company_employee">
+        <t t-call="web.html_container">
+            <t t-call="web.internal_layout">
+                <div class="page">
+                    <div class="oe_structure">
+                        <div class="row">
+                            <div class="col-xs-6" style="text-align: justify; text-justify: inter-word; font-style: italic;">
+                                <div style="padding-left: 15em; font: bold; text-decoration: underline;">
+                                TO WHOME IT MAY CONCERN<br/> <span t-esc="res_company.partner_id.name"></span>
+                                </div>
+                                <br/>
+                                *Agreement has been made between M/s. AL SAQR &amp; AL FIROZ ENG &amp; CONST CO L.L.C Known hereinafter (First party) and M/s. AL RAMIYA AL SHAMILA TRAD. CO. (Second party) to execute some of the Civil, Mechanical, Scaffolding, Electrical &amp; Insulation Services works at various sites in whole Oman, the specifications and nature of job agreed upon.<br/>
+                                <br/>
+                                *Mr. <span t-esc="docs['employee_name']"></span><![CDATA[&nbsp;]]><span t-esc="docs['country_id'][1]"></span>, Nationality, holding passport number (BF0153630), under the sponsorship M/s. AL RAMIYA AL SHAMILA TRAD. CO.<br/>
+                                <br/>
+                                *It is committed that the First party shall provide accommodation, meals to second party workers.<br/>
+                                <br/>
+                                <br/>
+                                *The first party shall settle the payments due to second party as per work progress at the end of each calendar month.<br/>
+                                <br/>
+                                *All 2nd party employees are to receive their salaries from the 1st party and their work compensation insurance, labor and immigration formalities are to be taken care of by 2nd party.<br/>
+                                <br/>
+                                *In case of any query, kindly contact our human resource manger or administrator, telephone number +968 23213650.<br/>
+                                <br/>
+                                *This agreement is effective from,01 January, 2017until the job are completed as per the conditions refer above.<br/>
+                                <br/>
+                                Second Party:-<br/>
+                                AL RAMIYA AL SHAMILA TRAD. CO. <br/>
+                                    شركة الرميله الشاملة للتجارة
+                            </div>
+                            <div class="col-xs-6" style="text-align: justify; text-justify: inter-word; font-style: italic;">
+                                <div style="padding-left: 15em; font: bold; text-decoration: underline;">
+الي من يهمه الأمر
+                                </div>
+<br/>
+*لقد تم الاتفاق بين الشركة الصقر الفيروز الهندسية للتجارة و المقاولات (الطرف الاول) و شركة الرميله الشاملة للتجارة.(الطرف الثاني) علي القيام ببعض اعمال الخدمات المدينة و خدمات ميكانيكية للطرف الأول الواقعة في سلطنة عمان كله بموجب المواصفات المتفق عليها مسبقأ.
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+*بهذ ا نؤ كد ان الفاضل أكاس علي , بنغلاديشي الجنسية و يحمل جواز رقم     (    (BF0153630يعمل لدى / شركة الرميله الشاملة للتجارة.
+<br/>
+* وعليه يلتزم الطرف الاول بتوفير سكن و مأ كل لعمال الطرف الثاني
+<br/>
+<br/>
+<br/>
+*يلتزم الطرف الأول بدفع المبلغ المتفق عليه حسب حدول الأعمال وذلك بموجب الفواتير التي يقدمها الطرف الثاني عندنهاية الأعمال المسندة اليه كل آخر شهر ميلادي.
+<br/>
+*علي هذا العامل استلام رواتبه من الطرف الأول و عليه أيضا تامينة صحيأ ضد الأصابات المهنة والغير مهنية وأبضأ بالتكفل بجميع المعاملات الصادرة من دائرة العمل و الهجرة.
+<br/>
+<br/>
+*في حالة الحاجة لأية معلومات عن العامل المذكور اعلاه يرجي الاتصال بمدير الموارد البشربة والادارة بالشركة علي الهاتف رقم 96823213650
+<br/>
+<br/>
+*يسرى مفعول هذا العقد اعتبار من تاريخ 01يناير 2017و حتى نهاية الأعمال المكفلة بها للطرف الثاني.
+<br/>
+First Party:-<br/>
+AL SAQR AL FIROZ ENG &amp; CONST CO L.L.C<br/>
+شركة الصقر الفيروز الهندسية للتجارة و المقاولات ش-م-م
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

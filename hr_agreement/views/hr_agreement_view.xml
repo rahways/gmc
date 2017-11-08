@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="hr_agreement_form" model="ir.ui.view">
+            <field name="name">hr.agreement.form</field>
+            <field name="model">hr.agreement</field>
+            <field name="arch" type="xml">
+                <form string="Employee Agreement form">
+                    <group>
+                        <group>
+                            <field name="name" invisible="1"/>
+                            <field name="civil_no"/>
+                            <field name="employee_id" invisible="1"/>
+                            <field name="employee_name" readonly="1"/>
+                            <field name="country_id" readonly="1"/>
+                            <field name="passport" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="date"/>
+                            <field name="employee_id" invisible="1"/>
+                            <field name="employee_arabic" required="1"/>
+                            <field name="nationality_arabic" required="1"/>
+                            <field name="passport_arabic" required="1"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="print_agreement" string="Print" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-default" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_hr_agreement_coemployee" model="ir.actions.act_window">
+            <field name="name">Agreement for Company Employee</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.agreement</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="hr_agreement_form"/>
+            <field name="context">{'agreement_type':'coemployee'}</field>
+            <field name="target">new</field>
+        </record>
+
+        <record id="action_hr_agreement_hire" model="ir.actions.act_window">
+            <field name="name">Agreement for Labour Hiring</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.agreement</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="hr_agreement_form"/>
+            <field name="context">{'agreement_type':'hire'}</field>
+            <field name="target">new</field>
+        </record>
+
+       <menuitem
+            id="hr_agreement_forms"
+            name="Agreements"
+            parent="hr.menu_hr_root"
+            sequence="8"
+            groups="hr.group_hr_manager"/>
+        <menuitem
+                id="hr_agreement_hiring"
+                name="Agreement for Labour Hiring"
+                action="action_hr_agreement_hire"
+                parent="hr_agreement_forms"
+                sequence="1"
+                groups="hr.group_hr_manager"
+        />
+        <menuitem
+                id="hr_agreement_company"
+                name="Agreement for Company Employee"
+                action="action_hr_agreement_coemployee"
+                parent="hr_agreement_forms"
+                sequence="2"
+                groups="hr.group_hr_manager"
+        />
+    </data>
+</odoo>

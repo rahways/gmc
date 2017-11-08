@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <report
+            id="agreement_hire"
+            model="hr.agreement"
+            string="Agreement for Labour Hiring"
+            report_type="qweb-pdf"
+            name="hr_agreement.report_labour_hiring"
+            file="hr_agreement.report_labour_hiring"
+        />
+        <report
+            id="agreement_coemployee"
+            model="hr.agreement"
+            string="Agreement for Company Employee"
+            report_type="qweb-pdf"
+            name="hr_agreement.report_company_employee"
+            file="hr_agreement.report_company_employee"
+        />
+    </data>
+</odoo>
