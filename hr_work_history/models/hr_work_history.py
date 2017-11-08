@@ -106,3 +106,11 @@ class HrWorkDetails(models.Model):
     _inherit = 'hr.contract'
 
     work_type_ids = fields.One2many('hr.work.type', 'contract_id')
+
+
+class HrLocation(models.Model):
+    _name = 'hr.location'
+
+    name = fields.Char(string='Location Name')
+    code = fields.Char(string='Location Code')
+    partner_id = fields.Many2one('res.partner', string='Customer')

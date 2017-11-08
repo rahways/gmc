@@ -20,7 +20,8 @@
                             <group string="Contract Details">
                                 <field name="sale_order_id"/>
                                 <field name="company_name"/>
-                                <field name="location_id"/>
+                                <field name="location_id" attrs="{'invisible': [('employee_id','=',False)]}"
+                                domain="[('partner_id','=',parent.partner_id)]"/>
                                 <field name="onsite_designation_id"/>
                                 <field name="hire_date"/>
                                 <field name="dehire_date"/>
