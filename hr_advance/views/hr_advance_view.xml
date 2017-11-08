@@ -7,8 +7,10 @@
             <field name="arch" type="xml">
                 <form string="Employee Advance Management">
                     <sheet>
+                        <group>
+                            <h1><field name="name" readonly="1" nolabel="1"/></h1>
+                        </group>
                         <group string="Employee Details">
-                            <field name="name"/>
                             <group>
                                 <field name="employee_civil_no"/>
                                 <field name="employee_id"/>
@@ -44,6 +46,26 @@
                         </notebook>
                     </sheet>
                 </form>
+            </field>
+        </record>
+        <record id="hr_advance_pivot" model="ir.ui.view">
+            <field name="name">hr.advance.pivot</field>
+            <field name="model">hr.advance</field>
+            <field name="arch" type="xml">
+                <pivot string="Advances">
+                    <field name="advance_date" type="row"/>
+                    <field name="advance_amount" type="column"/>
+                </pivot>
+            </field>
+        </record>
+        <record id="hr_advance_graph" model="ir.ui.view">
+            <field name="name">hr.advance.graph</field>
+            <field name="model">hr.advance</field>
+            <field name="arch" type="xml">
+                <graph string="Advances">
+                    <field name="advance_date" type="row"/>
+                    <field name="advance_amount" type="column"/>
+                </graph>
             </field>
         </record>
         <record id="hr_contract_view_form_advances" model="ir.ui.view">
@@ -85,7 +107,7 @@
             <field name="name">Employee Advance Management</field>
             <field name="res_model">hr.advance</field>
             <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">tree,form,graph,pivot</field>
             <field name="domain">[]</field>
             <field name="context">{'search_default_current':1}</field>
             <!--field name="search_view_id" ref="hr_contract_view_search"/-->
@@ -98,9 +120,16 @@
         <menuitem
             id="hr_advance"
             name="Advances"
-            action="action_hr_advance"
             parent="hr.menu_hr_root"
             sequence="5"
             groups="hr.group_hr_manager"/>
+        <menuitem
+                id="hr_advance_list"
+                name="Advances"
+                action="action_hr_advance"
+                parent="hr_advance"
+                sequence="1"
+                groups="hr.group_hr_manager"
+        />
     </data>
 </odoo>
