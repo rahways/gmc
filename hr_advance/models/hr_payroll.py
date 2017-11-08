@@ -8,11 +8,12 @@ class HrPayslip(models.Model):
     deduct_line_ids = fields.One2many('hr.advance.deduction.line', 'payslip_id', string='Deducted Lines')
 
     @api.model
-    def get_inputs(self, contract_ids, date_from, date_to):
-        records = super(HrPayslip, self).get_inputs(contract_ids, date_from, date_to)
+    def get_inputs(self, contracts, date_from, date_to):
+        records = super(HrPayslip, self).get_inputs(contracts, date_from, date_to)
         deductions = []
         print (records)
-        contracts = self.env['hr.contract'].browse(contract_ids)
+        # contracts = self.env['hr.contract'].browse(contract_ids)
+        print ('prints contracts ', contracts)
         total_advance = 0.0
         for contract in contracts:
             for advance in contract.advance_ids:
