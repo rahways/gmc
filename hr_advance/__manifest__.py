@@ -11,6 +11,9 @@
     'depends': ['hr_contract', 'hr_payroll'],
     'data': [
         'views/hr_advance_view.xml',
+        'views/hr_advance_sequence.xml',
+        'data/hr_advance_rule.xml',
+        'reports/hr_advance_report.xml',
     ],
     'demo': [],
     'installable': True,
